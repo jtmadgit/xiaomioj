@@ -24,9 +24,18 @@ public class findOne {
       line = scan.nextLine().trim();
       // please write your code here
       String[] inputArray = line.split(" ");
-      Map<String, List<String>> groupResult = Arrays.stream(inputArray).collect(Collectors.groupingBy(String::valueOf));
+      /*Map<String, List<String>> groupResult = Arrays.stream(inputArray).collect(Collectors.groupingBy(String::valueOf));
       List<List<String>> find = groupResult.values().stream().filter( array -> array.size() == 1).collect(Collectors.toList());
-      System.out.println(find.get(0).get(0));
+      System.out.println(find.get(0).get(0));*/
+      List<String> result = new ArrayList();
+      for(String item : inputArray){
+        if (result.contains(item)) {
+          result.remove(item);
+        } else {
+          result.add(item);
+        }
+      }
+      System.out.println(result.get(0));
     }
 
   }
