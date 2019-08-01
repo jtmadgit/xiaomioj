@@ -1,7 +1,6 @@
 package com.online.judge;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 最长连续数组
@@ -25,13 +24,16 @@ public class LongestContinuousSequence {
       line = scan.nextLine().trim();
       // please write your code here
       String[] inputArray = line.split(",");
-      List<String> sort = Arrays.stream(inputArray)
-          .sorted((current, next) -> Integer.valueOf(current) - Integer.valueOf(next))
-          .collect(Collectors.toList());
+      int length = inputArray.length;
+      Integer[] intInputArray = new Integer[length];
+      for (int i=0; i<length; i++) {
+        intInputArray[i] = Integer.valueOf(inputArray[i]);
+      }
+      Arrays.sort(intInputArray);
       int longestCount = 1;
       int currenCount = 1;
-      for(int i=0; i<sort.size()-1;i++){
-        if(Integer.valueOf(sort.get(i+1)) - Integer.valueOf(sort.get(i)) == 1){
+      for(int i=0; i<length-1;i++){
+        if(intInputArray[i+1] - intInputArray[i] == 1){
           currenCount++;
         }else if(currenCount >= longestCount){
           longestCount = currenCount;
