@@ -34,7 +34,16 @@ public class MinExchangeTimes {
       for (int i=0; i<length; i++) {
         intInputArray[i] = Integer.valueOf(inputArray[i]);
       }
-
+      for (int i=0; i< length - 1; i++) {
+        for (int j=0; j< length - 1; j++) {
+          if (intInputArray[j + 1] - intInputArray[j] < 0) {
+            int temp = intInputArray[j];
+            intInputArray[j] = intInputArray[j + 1];
+            intInputArray[j + 1] = temp;
+            minExchangeTimes++;
+          }
+        }
+      }
       System.out.println(minExchangeTimes);
       // System.out.println("answer");
     }
