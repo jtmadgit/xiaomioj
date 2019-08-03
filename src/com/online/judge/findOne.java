@@ -10,9 +10,11 @@ import java.util.stream.Collectors;
  *
  * 输入
  * 输入多个数字，每个数字以空格分开。数字数量 N < 20，输入数字的最大值小于 256.
+ *
  * 输出
  * 输出内容为只出现过唯一一次的数字
- * @{author} issuser
+ *
+ * @{author} majintao
  * @{create} 2019-07-31-17:08
  */
 public class findOne {
