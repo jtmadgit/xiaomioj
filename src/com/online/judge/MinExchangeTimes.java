@@ -34,8 +34,9 @@ public class MinExchangeTimes {
       for (int i=0; i<length; i++) {
         intInputArray[i] = Integer.valueOf(inputArray[i]);
       }
-      for (int i=0; i< length - 1; i++) {
-        for (int j=0; j< length - 1; j++) {
+      // 冒泡排序
+      for (int i=length - 1; i>0; i--) {
+        for (int j=0; j< i; j++) {
           if (intInputArray[j + 1] - intInputArray[j] < 0) {
             int temp = intInputArray[j];
             intInputArray[j] = intInputArray[j + 1];
