@@ -12,9 +12,12 @@ import java.util.stream.Collectors;
  */
 public class Recursive {
 
+  private static int  step = 0;
+
   public static void main(String[] args) {
-    Integer[] integers = new Integer[]{2, 4, 3, 5, 9, 8, 1};
-    System.out.println(sum(integers, integers.length));
+    //Integer[] integers = new Integer[]{2, 4, 3, 5, 9, 8, 1};
+    //System.out.println(sum(integers, integers.length));
+    hanoi(10, "A", "B", "C");
   }
 
   /**
@@ -58,5 +61,20 @@ public class Recursive {
       }
     }
     return null;
+  }
+
+  private static void hanoi(int n, String start, String destination, String assist){
+    if (n == 1){
+      hanoiMove(1, start, destination);
+    }else if(n > 1){
+      hanoi(n - 1, start, destination, assist);
+      hanoiMove(n, start, assist);
+      hanoi(n - 1, assist, destination, start);
+    }
+  }
+
+  private static void hanoiMove(int n, String start, String end){
+    ++step;
+    System.out.println("第" + step + "步:" + n + ": " + start + "->" + end);
   }
 }
